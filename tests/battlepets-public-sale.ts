@@ -1,5 +1,4 @@
 import * as anchor from "@coral-xyz/anchor";
-import { Program, BN } from "@coral-xyz/anchor";
 import { assert, expect } from "chai";
 import { BattlepetsPublicSale } from "../target/types/battlepets_public_sale";
 
@@ -8,17 +7,19 @@ describe("battlepets-public-sale", () => {
   anchor.setProvider(provider);
 
   const providerProgram = anchor.workspace
-    .BattlepetsPublicSale as Program<BattlepetsPublicSale>;
+    .BattlepetsPublicSale as anchor.Program<BattlepetsPublicSale>;
 
   const [salePda] = anchor.web3.PublicKey.findProgramAddressSync(
     [Buffer.from("global")],
     providerProgram.programId
   );
 
-  const initialLamports = new BN(2 * anchor.web3.LAMPORTS_PER_SOL);
-  const repeatLamports = new BN(1 * anchor.web3.LAMPORTS_PER_SOL);
+  const initialLamports = new anchor.BN(2 * anchor.web3.LAMPORTS_PER_SOL);
+  const repeatLamports = new anchor.BN(1 * anchor.web3.LAMPORTS_PER_SOL);
 
-  const anotherContributorLamports = new BN(0.5 * anchor.web3.LAMPORTS_PER_SOL);
+  const anotherContributorLamports = new anchor.BN(
+    0.5 * anchor.web3.LAMPORTS_PER_SOL
+  );
 
   const contributor = anchor.web3.Keypair.generate();
 
@@ -134,9 +135,13 @@ describe("battlepets-public-sale", () => {
       );
     const saleAccount = await providerProgram.account.saleState.fetch(salePda);
 
+    expect(contributor.publicKey.toString()).to.equal(
+      saleAllocationAccount.contributor.toString()
+    );
     expect(Number(initialLamports)).to.equal(
       Number(saleAllocationAccount.amount)
     );
+
     expect(Number(initialLamports)).to.equal(Number(saleAccount.amount));
 
     const finalSignerLamports = await provider.connection.getBalance(
@@ -182,9 +187,13 @@ describe("battlepets-public-sale", () => {
       );
     const saleAccount = await providerProgram.account.saleState.fetch(salePda);
 
+    expect(contributor.publicKey.toString()).to.equal(
+      saleAllocationAccount.contributor.toString()
+    );
     expect(Number(initialLamports) + Number(repeatLamports)).to.equal(
       Number(saleAllocationAccount.amount)
     );
+
     expect(Number(initialLamports) + Number(repeatLamports)).to.equal(
       Number(saleAccount.amount)
     );
@@ -256,9 +265,13 @@ describe("battlepets-public-sale", () => {
       );
     const saleAccount = await providerProgram.account.saleState.fetch(salePda);
 
+    expect(anotherContributor.publicKey.toString()).to.equal(
+      saleAllocationAccount.contributor.toString()
+    );
     expect(Number(anotherContributorLamports)).to.equal(
       Number(saleAllocationAccount.amount)
     );
+
     expect(
       Number(initialLamports) +
         Number(repeatLamports) +
@@ -315,7 +328,9 @@ describe("battlepets-public-sale", () => {
         providerProgram.programId
       );
 
-    const tooLittleLamports = new BN(0.09 * anchor.web3.LAMPORTS_PER_SOL);
+    const tooLittleLamports = new anchor.BN(
+      0.09 * anchor.web3.LAMPORTS_PER_SOL
+    );
     try {
       await contributorProgram.methods
         .addSaleAllocation(tooLittleLamports)
@@ -337,7 +352,9 @@ describe("battlepets-public-sale", () => {
       assert.strictEqual(anchorError.error.errorCode.number, 6001);
     }
 
-    const tooManyLamports = new BN((4 + 0.01) * anchor.web3.LAMPORTS_PER_SOL)
+    const tooManyLamports = new anchor.BN(
+      (4 + 0.01) * anchor.web3.LAMPORTS_PER_SOL
+    )
       .sub(initialLamports)
       .sub(repeatLamports);
     try {
@@ -367,7 +384,7 @@ describe("battlepets-public-sale", () => {
         providerProgram.programId
       );
 
-    const tooManyTotalLamports = new BN(
+    const tooManyTotalLamports = new anchor.BN(
       (6 + 0.01) * anchor.web3.LAMPORTS_PER_SOL
     )
       .sub(initialLamports)

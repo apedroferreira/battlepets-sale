@@ -4,14 +4,17 @@
 seeds = false
 skip-lint = false
 
+[programs.devnet]
+solana_twitter = "8BTZ46tNwx3WfsbG9mF9cb57aHJihgoBoUzEjGkKtPNx"
+
 [programs.localnet]
-battlepets_public_sale = "3y3huj5KEadQbQjUw4XRGrs7tHsWz1kXBi722dHXXjsG"
+battlepets_public_sale = "8BTZ46tNwx3WfsbG9mF9cb57aHJihgoBoUzEjGkKtPNx"
 
 [registry]
 url = "https://api.apr.dev"
 
 [provider]
-cluster = "Localnet"
+cluster = "devnet"
 wallet = "/Users/pedroferreira/.config/solana/id.json"
 
 [scripts]
