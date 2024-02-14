@@ -5,10 +5,10 @@ seeds = false
 skip-lint = false
 
 [programs.devnet]
-solana_twitter = "8BTZ46tNwx3WfsbG9mF9cb57aHJihgoBoUzEjGkKtPNx"
+solana_twitter = "3Y26b2n3x7GPpJjjLcKQxURx1wniCqUDFeprgVsUybrx"
 
 [programs.localnet]
-battlepets_public_sale = "8BTZ46tNwx3WfsbG9mF9cb57aHJihgoBoUzEjGkKtPNx"
+battlepets_public_sale = "3Y26b2n3x7GPpJjjLcKQxURx1wniCqUDFeprgVsUybrx"
 
 [registry]
 url = "https://api.apr.dev"

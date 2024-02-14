@@ -1,7 +1,7 @@
 use anchor_lang::{prelude::*, system_program};
 use solana_program::{pubkey, pubkey::Pubkey, native_token::LAMPORTS_PER_SOL};
 
-declare_id!("8BTZ46tNwx3WfsbG9mF9cb57aHJihgoBoUzEjGkKtPNx");
+declare_id!("3Y26b2n3x7GPpJjjLcKQxURx1wniCqUDFeprgVsUybrx");
 
 const FUND_RAISER_PUBLIC_KEY: Pubkey = pubkey!("E8R2i17Pzhy912JcwJ4mXinkv65KsUSHeGUZqjVGJczH");
 
