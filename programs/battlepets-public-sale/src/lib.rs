@@ -1,15 +1,15 @@
 use anchor_lang::{prelude::*, system_program};
 use solana_program::{pubkey, pubkey::Pubkey, native_token::LAMPORTS_PER_SOL};
 
-declare_id!("3Y26b2n3x7GPpJjjLcKQxURx1wniCqUDFeprgVsUybrx");
+declare_id!("76CioQ25rRy7kF1s7mTAjuJFFWFjodmc779cRWgdLKr5");
 
 const FUND_RAISER_PUBLIC_KEY: Pubkey = pubkey!("E8R2i17Pzhy912JcwJ4mXinkv65KsUSHeGUZqjVGJczH");
 
 const SALE_PDA_KEY: &str = "global";
 
 const MIN_INDIVIDUAL_ALLOCATION: u64 = LAMPORTS_PER_SOL / 10;
-const MAX_INDIVIDUAL_ALLOCATION: u64 = 4 * LAMPORTS_PER_SOL;
-const MAX_TOTAL_ALLOCATION: u64 = 16 * LAMPORTS_PER_SOL;
+const MAX_INDIVIDUAL_ALLOCATION: u64 = 120 * LAMPORTS_PER_SOL;
+const MAX_TOTAL_ALLOCATION: u64 = 2800 * LAMPORTS_PER_SOL;
 
 #[program]
 pub mod battlepets_public_sale {
