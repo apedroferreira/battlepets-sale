@@ -12,7 +12,7 @@ const MAX_INDIVIDUAL_ALLOCATION: u64 = 120 * LAMPORTS_PER_SOL;
 const MAX_TOTAL_ALLOCATION: u64 = 2800 * LAMPORTS_PER_SOL;
 
 #[program]
-pub mod battlepets_public_sale {
+pub mod battlepets_sale {
     use super::*;
 
     pub fn open_sale(ctx: Context<OpenSale>) -> Result<()> {

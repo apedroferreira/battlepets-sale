@@ -5,10 +5,10 @@ seeds = false
 skip-lint = false
 
 [programs.devnet]
-battlepets_public_sale = "76CioQ25rRy7kF1s7mTAjuJFFWFjodmc779cRWgdLKr5"
+battlepets_sale = "76CioQ25rRy7kF1s7mTAjuJFFWFjodmc779cRWgdLKr5"
 
 [programs.localnet]
-battlepets_public_sale = "76CioQ25rRy7kF1s7mTAjuJFFWFjodmc779cRWgdLKr5"
+battlepets_sale = "76CioQ25rRy7kF1s7mTAjuJFFWFjodmc779cRWgdLKr5"
 
 [registry]
 url = "https://api.apr.dev"

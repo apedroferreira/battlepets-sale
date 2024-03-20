@@ -1,13 +1,13 @@
 import * as anchor from "@coral-xyz/anchor";
 import { assert, expect } from "chai";
-import { BattlepetsPublicSale } from "../target/types/battlepets_public_sale";
+import { BattlepetsSale } from "../target/types/battlepets_sale";
 
-describe("battlepets-public-sale", () => {
+describe("battlepets-sale", () => {
   const provider = anchor.AnchorProvider.env();
   anchor.setProvider(provider);
 
   const providerProgram = anchor.workspace
-    .BattlepetsPublicSale as anchor.Program<BattlepetsPublicSale>;
+    .BattlepetsSale as anchor.Program<BattlepetsSale>;
 
   const [salePda] = anchor.web3.PublicKey.findProgramAddressSync(
     [Buffer.from("global")],
