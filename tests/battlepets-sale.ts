@@ -1,6 +1,6 @@
 import * as anchor from "@coral-xyz/anchor";
 import { assert, expect } from "chai";
-import { BattlepetsSale } from "../target/types/battlepets_sale";
+import type { BattlepetsSale } from "../target/types/battlepets_sale";
 
 describe("battlepets-sale", () => {
   const provider = anchor.AnchorProvider.env();
@@ -30,7 +30,6 @@ describe("battlepets-sale", () => {
   );
   const contributorProgram = new anchor.Program(
     providerProgram.idl,
-    providerProgram.programId,
     contributorProvider
   );
 
@@ -54,11 +53,7 @@ describe("battlepets-sale", () => {
     try {
       await contributorProgram.methods
         .addSaleAllocation(initialLamports)
-        .accounts({
-          saleAllocation: saleAllocationPda,
-          sale: salePda,
-          fundRaiser: provider.publicKey,
-        })
+        .accounts({})
         .rpc();
     } catch (error) {
       assert.isTrue(error instanceof anchor.AnchorError);
@@ -122,11 +117,7 @@ describe("battlepets-sale", () => {
 
     await contributorProgram.methods
       .addSaleAllocation(initialLamports)
-      .accounts({
-        saleAllocation: saleAllocationPda,
-        sale: salePda,
-        fundRaiser: provider.publicKey,
-      })
+      .accounts({})
       .rpc();
 
     const saleAllocationAccount =
@@ -174,11 +165,7 @@ describe("battlepets-sale", () => {
 
     await contributorProgram.methods
       .addSaleAllocation(repeatLamports)
-      .accounts({
-        saleAllocation: saleAllocationPda,
-        sale: salePda,
-        fundRaiser: provider.publicKey,
-      })
+      .accounts({})
       .rpc();
 
     const saleAllocationAccount =
@@ -222,7 +209,6 @@ describe("battlepets-sale", () => {
   );
   const anotherContributorProgram = new anchor.Program(
     providerProgram.idl,
-    providerProgram.programId,
     anotherContributorProvider
   );
 
@@ -252,11 +238,7 @@ describe("battlepets-sale", () => {
 
     await anotherContributorProgram.methods
       .addSaleAllocation(anotherContributorLamports)
-      .accounts({
-        saleAllocation: saleAllocationPda,
-        sale: salePda,
-        fundRaiser: provider.publicKey,
-      })
+      .accounts({})
       .rpc();
 
     const saleAllocationAccount =
@@ -302,11 +284,7 @@ describe("battlepets-sale", () => {
     try {
       await contributorProgram.methods
         .addSaleAllocation(initialLamports)
-        .accounts({
-          saleAllocation: saleAllocationPda,
-          sale: salePda,
-          fundRaiser: contributor.publicKey,
-        })
+        .accounts({})
         .rpc();
     } catch (error) {
       assert.isTrue(error instanceof anchor.AnchorError);
@@ -334,11 +312,7 @@ describe("battlepets-sale", () => {
     try {
       await contributorProgram.methods
         .addSaleAllocation(tooLittleLamports)
-        .accounts({
-          saleAllocation: contributorSaleAllocationPda,
-          sale: salePda,
-          fundRaiser: provider.publicKey,
-        })
+        .accounts({})
         .rpc();
     } catch (error) {
       assert.isTrue(error instanceof anchor.AnchorError);
@@ -360,11 +334,7 @@ describe("battlepets-sale", () => {
     try {
       await contributorProgram.methods
         .addSaleAllocation(tooManyLamports)
-        .accounts({
-          saleAllocation: contributorSaleAllocationPda,
-          sale: salePda,
-          fundRaiser: provider.publicKey,
-        })
+        .accounts({})
         .rpc();
     } catch (error) {
       assert.isTrue(error instanceof anchor.AnchorError);
@@ -393,11 +363,7 @@ describe("battlepets-sale", () => {
     try {
       await anotherContributorProgram.methods
         .addSaleAllocation(tooManyTotalLamports)
-        .accounts({
-          saleAllocation: anotherContributorSaleAllocationPda,
-          sale: salePda,
-          fundRaiser: provider.publicKey,
-        })
+        .accounts({})
         .rpc();
     } catch (error) {
       assert.isTrue(error instanceof anchor.AnchorError);
@@ -469,11 +435,7 @@ describe("battlepets-sale", () => {
     try {
       await contributorProgram.methods
         .addSaleAllocation(initialLamports)
-        .accounts({
-          saleAllocation: saleAllocationPda,
-          sale: salePda,
-          fundRaiser: provider.publicKey,
-        })
+        .accounts({})
         .rpc();
     } catch (error) {
       assert.isTrue(error instanceof anchor.AnchorError);

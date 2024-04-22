@@ -1,21 +1,24 @@
 [toolchain]
 
 [features]
-seeds = false
+resolution = true
 skip-lint = false
 
-[programs.devnet]
-battlepets_sale = "76CioQ25rRy7kF1s7mTAjuJFFWFjodmc779cRWgdLKr5"
-
 [programs.localnet]
-battlepets_sale = "76CioQ25rRy7kF1s7mTAjuJFFWFjodmc779cRWgdLKr5"
+battlepets_sale = "3QYxDo5HQ5pR5NUaRgcujEkuUJkoRAtXcCGxpFBEqY4Z"
+
+[programs.devnet]
+battlepets_sale = "3QYxDo5HQ5pR5NUaRgcujEkuUJkoRAtXcCGxpFBEqY4Z"
+
+[programs.mainnet]
+battlepets_sale = "3QYxDo5HQ5pR5NUaRgcujEkuUJkoRAtXcCGxpFBEqY4Z"
 
 [registry]
 url = "https://api.apr.dev"
 
 [provider]
 cluster = "Devnet"
-wallet = "/Users/pedroferreira/.config/solana/id.json"
+wallet = "~/.config/solana/id.json"
 
 [scripts]
 test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
