@@ -4,14 +4,14 @@
 resolution = true
 skip-lint = false
 
-[programs.localnet]
-battlepets_sale = "3QYxDo5HQ5pR5NUaRgcujEkuUJkoRAtXcCGxpFBEqY4Z"
-
 [programs.devnet]
-battlepets_sale = "3QYxDo5HQ5pR5NUaRgcujEkuUJkoRAtXcCGxpFBEqY4Z"
+battlepets_sale = "4Cmeroq292g2tFfwTdhu8Sj9MZucrcyRYBTqNF9DsoRY"
+
+[programs.localnet]
+battlepets_sale = "4Cmeroq292g2tFfwTdhu8Sj9MZucrcyRYBTqNF9DsoRY"
 
 [programs.mainnet]
-battlepets_sale = "3QYxDo5HQ5pR5NUaRgcujEkuUJkoRAtXcCGxpFBEqY4Z"
+battlepets_sale = "4Cmeroq292g2tFfwTdhu8Sj9MZucrcyRYBTqNF9DsoRY"
 
 [registry]
 url = "https://api.apr.dev"
